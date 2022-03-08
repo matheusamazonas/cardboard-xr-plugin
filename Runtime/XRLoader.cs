@@ -100,6 +100,7 @@ namespace Google.XR.Cardboard
             CreateSubsystem<XRInputSubsystemDescriptor, XRInputSubsystem>(
                 _inputSubsystemDescriptors, "CardboardInput");
             _isInitialized = true;
+
             return true;
         }
 
@@ -171,6 +172,9 @@ namespace Google.XR.Cardboard
                     alignmentRect.y, alignmentRect.width, alignmentRect.height);
         }
 
+        [DllImport(ApiConstants.CardboardApi)]
+        public static extern void CardboardUnity_setGyroscopeBiasThreshold(float threshold);
+        
         /// <summary>
         /// Sets which viewport orientation is being used by Unity to the native implementation.
         /// </summary>
